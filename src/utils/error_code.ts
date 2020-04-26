@@ -26,8 +26,16 @@ const NulError: ErrorInter = {
   status: 200
 }
 
+const MethodError: ErrorInter = {
+  message: '不支持的请求类型',
+  code:  4000262,
+  response: {},
+  status: 200
+}
+
 export default {
   NotError,
   ServerError,
-  NulError
+  NulError,
+  MethodError
 }

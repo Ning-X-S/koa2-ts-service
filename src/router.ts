@@ -12,7 +12,7 @@ router.get('/test', async (ctx, next) => {
   if (isFlag) {
     throw new ServiceError(ErrorList.ServerError);
   } else {
-    console.log('http://localhost:7030/')
+    console.log('http://localhost:7033/')
     ctx.body = {
       error_code: 0,
       data: {},
@@ -23,8 +23,11 @@ router.get('/test', async (ctx, next) => {
 })
 
 // NetWork网络状况统计相关
-router.post('/network/create', NetWorkController.createNetwork)
-router.get('/network/list', NetWorkController.getList)
+router.post('/create_net', NetWorkController.createNetwork)
+router.get('/create_net', () => {
+  throw new ServiceError(ErrorList.MethodError)
+})
+router.get('/net_list', NetWorkController.getList)
 
 
 export default router
