@@ -1,6 +1,7 @@
 
 import { DataTypes, Model } from 'sequelize'
 import { sequelize } from './config'
+import { NetWorkInter } from '../utils/inter'
 
 
 class NetWork extends Model {

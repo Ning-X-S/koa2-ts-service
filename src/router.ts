@@ -28,6 +28,6 @@ router.get('/create_net', () => {
   throw new ServiceError(ErrorList.MethodError)
 })
 router.get('/net_list', NetWorkController.getList)
-
+router.get('/chart_net_list', NetWorkController.getListChart)
 
 export default router

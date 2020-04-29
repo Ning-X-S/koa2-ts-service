@@ -11,7 +11,13 @@ async function getList(ctx: Koa.Context, next: Koa.Next): Promise<void> {
   ctx.body = res
 }
 
+async function getListChart(ctx: Koa.Context, next: Koa.Next): Promise<void> {
+  const res: object = await NetWorkService.getListChart(ctx, next)
+  ctx.body = res
+}
+
 export default {
   createNetwork,
-  getList
+  getList,
+  getListChart
 }

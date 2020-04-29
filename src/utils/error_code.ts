@@ -1,9 +1,4 @@
-interface ErrorInter {
-  message: string;
-  code: number;
-  status: number;
-  response: object;
-}
+import { ErrorInter } from './inter'
 
 const NotError: ErrorInter = {
   message: '错误',
