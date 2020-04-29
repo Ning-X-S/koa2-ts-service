@@ -40,6 +40,7 @@ console.log(sayHello('1231'))
 console.log(sayHello1('2313'))
 console.log(getLength(12131))
 
+// interface
 interface Person {
   name: string;
   age: number;
@@ -52,6 +53,7 @@ const tom: Person = {
   gender: 'male'
 };
 console.log(tom)
+
 interface SearchFunc {
   (source: string, subString?: string): boolean;
 }
@@ -236,4 +238,35 @@ interface PointInstanceType {
 let p2: PointInstanceType;
 console.log(Point)
 // console.log(p2)
+
+// interface -- as
+interface Options { color: string; volume: number }
+
+const options = {} as Options;
+options.color = "red";
+options.volume = 11;
+
+// function return function
+const testFunc: (str: string) => ((hah: string) => string) = function (str: string) {
+  return function (hah: string): string {
+    console.log(hah + str)
+    return (hah + str)
+  }
+}
+const resultFunc = testFunc('str')
+console.log(resultFunc('123'))
+
+// 类型别名
+type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;
+function getName(n: NameOrResolver): Name {
+  if (typeof n === 'string') {
+      return n;
+  } else {
+      return n();
+  }
+}
+const resulType = getName('resulType')
+console.log(resulType)
 ```
