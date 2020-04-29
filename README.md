@@ -240,21 +240,59 @@ console.log(Point)
 // console.log(p2)
 
 // interface -- as
-interface Options { color: string; volume: number }
+interface Options { 
+  color: string; 
+  volume?: number;
+  func: (str?: number) => void;
+ }
 
 const options = {} as Options;
 options.color = "red";
 options.volume = 11;
+console.log(options)
 
-// function return function
-const testFunc: (str: string) => ((hah: string) => string) = function (str: string) {
-  return function (hah: string): string {
-    console.log(hah + str)
-    return (hah + str)
+//  this
+const newOpt: Options = {
+  color: 'newOpt-this',
+  volume: 9,
+  func (str?: number): void {
+    //any类型
+    console.log(this)
+    console.log(str)
   }
 }
-const resultFunc = testFunc('str')
-console.log(resultFunc('123'))
+const OptionsS: Options = {
+  color: 'OptionsS',
+  func (str?: number): void {
+    //any类型
+    console.log(str)
+    console.log(this)
+  }
+}
+OptionsS.func()
+
+// function return function
+const testFunc: (newOpt: Options, str: string) => ((newOptReturn: Options, strReturn: string) => void) = function (newOpt: Options, str: string): ((newOptReturn: Options, strReturn: string) => void) {
+  console.log(newOpt)
+  return function (newOptReturn: Options, strReturn: string): void {
+    console.log(strReturn + str)
+    console.log(newOptReturn)
+    // return (hah + str)
+  }
+}
+
+const noNewOpt = {
+  color: 'no-newOpt-this',
+  volume: 132,
+  func (str?: number): void {
+    //any类型
+    console.log(this)
+    console.log(str)
+  }
+}
+
+const resultFunc = testFunc(noNewOpt, '哈哈哈哈')
+console.log(resultFunc(newOpt, '123'))
 
 // 类型别名
 type Name = string;
