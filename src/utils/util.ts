@@ -5,7 +5,7 @@ export const formatTime = function (start_time: string, end_time: string, machin
   const start = new Date(start_time)
   const end = new Date(end_time)
   // 计算相差小时
-  const diffHours: number = parseInt(((end.getTime()/ 1000 - start.getTime()/ 1000) / 60 / 60).toString() + 1)
+  const diffHours: number = parseInt((String((end.getTime()/ 1000 - start.getTime()/ 1000) / 60 / 60) + 1))
   for (let i = 0; i < diffHours + 1 ; i++) {
     // const dayNum = parseInt(String(i / 24))
     const timeStr = new Date(start.getTime() + i  * 60 * 60 * 1000)
