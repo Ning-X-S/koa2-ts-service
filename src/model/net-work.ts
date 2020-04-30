@@ -4,12 +4,23 @@ import { sequelize } from './config'
 import { NetWorkInter } from '../utils/inter'
 
 
-class NetWork extends Model {
+// class NetWork extends Model {
+//   id?: number;
+//   fluctua_num?: number;
+//   machine_name?: string;
+//   time_interval?: number;
+//   record_start_time?: Date;
+//   record_end_time?: Date;
+//   created_at?: Date;
+//   updated_at?: Date;
+// }
+
+class NetWork extends Model implements NetWorkInter {
   id?: number;
-  fluctua_num?: number;
+  fluctua_num!: number;
   machine_name?: string;
   time_interval?: number;
-  record_start_time?: Date;
+  record_start_time!: Date;
   record_end_time?: Date;
   created_at?: Date;
   updated_at?: Date;
