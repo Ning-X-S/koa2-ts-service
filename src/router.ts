@@ -2,7 +2,7 @@
 import Router from 'koa-router'
 import ServiceError from './utils/service-error'
 import ErrorList from './utils/error_code'
-import NetWorkController from './controller/network-contoller'
+import NetWorkController from './controller/network-controller'
 
 
 const router = new Router()
