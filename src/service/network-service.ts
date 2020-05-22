@@ -7,9 +7,20 @@ import { formatTime, machineList } from '../utils/util'
 import { NetWorkInter, ChartItemInter, ResponseInter } from '../utils/inter'
 
 
-class NetWorkService {
+abstract class NetWorkServiceAbstract {
+  public name = '1';
+  public constructor() {
+    console.log('init-------abstract')
+  }
+  public abstract createNetwork(ctx: Koa.Context, next: Koa.Next): void;
+  public abstract getList(ctx: Koa.Context, next: Koa.Next): void;
+  public abstract getListChart(ctx: Koa.Context, next: Koa.Next): void;
+}
+
+class NetWorkService extends NetWorkServiceAbstract {
   public constructor () {
     // console.log('init')
+    super()
   }
   /**
    * name: createNetwork

@@ -1,9 +1,19 @@
 import * as Koa from 'koa'
 import NetWorkService from '../service/network-service'
 
-class NetWorkContoller {
+abstract class NetWorkContollerAbstract {
+  public name = '1';
+  public constructor() {
+    console.log('init-------abstract')
+  }
+  public abstract createNetwork(ctx: Koa.ParameterizedContext, next: Koa.Next): void;
+  public abstract getList(ctx: Koa.Context, next: Koa.Next): void;
+  public abstract getListChart(ctx: Koa.Context, next: Koa.Next): void;
+}
+
+class NetWorkContoller extends NetWorkContollerAbstract {
   public constructor () {
-    // console.log('init')
+    super()
   }
   // public 修饰的属性或方法是公有的，可以在任何地方被访问到，默认所有的属性和方法都是 public 的
   // private 修饰的属性或方法是私有的，不能在声明它的类的外部访问
