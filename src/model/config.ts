@@ -15,7 +15,8 @@ const sequelizeConfig: Options = {
     dateStrings: true, // 日期字符串（配合类型转换使用）
     typeCast: true // 类型转换
   },
-  timezone: '+08:00'
+  timezone: '+08:00',
+  logging: process.env.NODE_ENV === 'dev' ? console.log  : false
 }
 
 export const sequelize = new Sequelize(mysql.database, mysql.user, mysql.password, sequelizeConfig)
