@@ -1,0 +1,11 @@
+CREATE TABLE `t_net_work` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `fluctua_num` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '网络波动次数',
+  `machine_name` varchar(100) NOT NULL DEFAULT '未设置' COMMENT '机器名称',
+  `time_interval` int(10) NOT NULL DEFAULT '0' COMMENT '记录时间间隔',
+  `record_start_time` datetime NOT NULL DEFAULT '1000-01-01 00:00:00' COMMENT '记录时间段-开始时间',
+  `record_end_time` datetime NOT NULL DEFAULT '1000-01-01 00:00:00' COMMENT '记录时间段-结束时间',
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6887 DEFAULT CHARSET=utf8mb4;
