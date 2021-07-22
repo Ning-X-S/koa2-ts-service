@@ -14,7 +14,8 @@ abstract class NetWorkContollerAbstract {
   public abstract getListChart(ctx: Koa.Context, next: Koa.Next): void;
 }
 var a = 1
-console.log(a)
+var b = 2
+console.log(a, b)
 class NetWorkContoller extends NetWorkContollerAbstract {
   public constructor() {
     super();

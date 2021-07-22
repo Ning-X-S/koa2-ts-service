@@ -8,9 +8,7 @@
     "dev": "NODE_ENV=dev nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/app/index.ts",
     "inf": "tsc && NODE_ENV=inf node ./dist/app/index.js",
     "online": "tsc && NODE_ENV=online node ./dist/app/index.js",
-    "start": "tsc && NODE_ENV=online node ./dist/app/index.js",
-    "lint": "eslint ./src --fix --ext .ts,.tsx",
-    "lint-staged": "lint-staged"
+    "start": "tsc && NODE_ENV=online node ./dist/app/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -45,7 +43,7 @@
     }
   },
   "lint-staged": {
-    "*{.ts,.js,.tsx,.jsx}": [
+    "src/**": [
       "eslint ./src --fix --ext .ts,.tsx",
       "git add"
     ]
