@@ -8,7 +8,9 @@
     "dev": "NODE_ENV=dev nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/app/index.ts",
     "inf": "tsc && NODE_ENV=inf node ./dist/app/index.js",
     "online": "tsc && NODE_ENV=online node ./dist/app/index.js",
-    "start": "tsc && NODE_ENV=online node ./dist/app/index.js"
+    "start": "tsc && NODE_ENV=online node ./dist/app/index.js",
+    "lint": "eslint ./src --fix --ext .ts,.tsx",
+    "lint-staged": "lint-staged"
   },
   "author": "",
   "license": "ISC",
@@ -23,16 +25,29 @@
     "@types/koa": "^2.11.3",
     "@types/koa-router": "^7.4.0",
     "@types/sequelize": "^4.28.8",
-    "nodemon": "^2.0.3",
-    "ts-node": "^8.9.0",
-    "typescript": "^3.8.3",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-import": "^2.20.*1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "@typescript-eslint/eslint-plugin": "^2.24.0",
-    "@typescript-eslint/parser": "^2.24.0"
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.1",
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.9.0",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*{.ts,.js,.tsx,.jsx}": [
+      "npm run lint",
+      "git add"
+    ]
   }
 }

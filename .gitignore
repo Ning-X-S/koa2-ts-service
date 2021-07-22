@@ -4,3 +4,4 @@ package-lock.json
 /src/config/inf.ts
 /src/config/online.ts
 /src/config/dev.ts
+.DS_Store
